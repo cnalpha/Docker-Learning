@@ -38,7 +38,7 @@ docker run -d -it alpine /bin/sh
 
 ### 查看運行中的容器
 ```
-docker container ls
+docker container ls 或叫 docker ps 
 ```
 
 ### 停止容器
@@ -77,49 +77,31 @@ ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
 ```
 
 ### 建立鏡像
-```bash
-docker build -t myimage .
+```
+docker build -t cnimage .
 ```
 
 ### 執行自訂鏡像並映射端口
-```bash
-docker run -d -p 80:80 myimage
 ```
-
-### 獲取 Docker 機器 IP
-```bash
-echo $(docker-machine ip)
+docker run -d -p 81:80 cnimage
 ```
-
+### 成果展示
+![建立image](pic1.png)
 ## 5. Docker Hub 操作
 
 ### 登入/登出 Docker Hub
-```bash
+```
 docker logout
 docker login
 ```
 
 ### 推送鏡像到 Docker Hub
-```bash
-docker build -t uopsdod/myimage .
-docker push uopsdod/myimage
+```
+docker build -t cnmichael/cnimage .
+docker push cnmichael/cnimage
 ```
 
-## 6. 清理資源
-
-### 停止所有容器
-```bash
-docker container stop $(docker container ls -a -q)
-```
-
-### 清除所有無用資源
-```bash
-docker system prune -y
-```
-
-### 刪除所有鏡像
-```bash
-docker rmi $(docker images -a -q)
-```
+### 成果展示
+![推送至Docker Hub](pic2.png)
 
 
