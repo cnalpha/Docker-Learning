@@ -86,7 +86,7 @@ docker build -t cnimage .
 docker run -d -p 81:80 cnimage
 ```
 ### 成果展示
-![建立image](pic1.png)
+![建立image](Pic1.png)
 ## 5. Docker Hub 操作
 
 ### 登入/登出 Docker Hub
@@ -102,6 +102,6 @@ docker push cnmichael/cnimage
 ```
 
 ### 成果展示
-![推送至Docker Hub](pic2.png)
+![推送至Docker Hub](Pic2.png)
 
 
