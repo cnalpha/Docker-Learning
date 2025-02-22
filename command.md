@@ -14,7 +14,7 @@ docker images
 
 ### 執行容器
 ```
-docker run alpine echo "hey001"
+docker run alpine echo "Hello Docker"
 docker run alpine df
 docker run alpine ls /
 ```
