@@ -1,2 +1,1 @@
-# Docker-learning-notes
-This is my note for learning Docker.
+# This is my project for learning Docker.
