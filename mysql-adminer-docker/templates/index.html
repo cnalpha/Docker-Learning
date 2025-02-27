@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>學生管理系統</title>
+</head>
+<body>
+    <h1>學生列表</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>名字</th>
+            <th>姓氏</th>
+            <th>年齡</th>
+            <th>班級</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.class }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: student_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - my_network
+
+  adminer:
+    image: adminer
+    container_name: adminer_container
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - my_network
+
+  flask:
+    image: python:3.10
+    container_name: flask_container
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: development
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+    networks:
+      - my_network
+    command: sh -c "pip install -r requirements.txt && flask run --host=0.0.0.0 --port=5000"
+
+volumes:
+  mysql_data:
+
+networks:
+  my_network:
+    driver: bridge
