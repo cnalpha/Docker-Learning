@@ -1,1 +1,2 @@
 mysql-adminer-docker/requirements.txt
+mysql-adminer-docker/__pycache__/
